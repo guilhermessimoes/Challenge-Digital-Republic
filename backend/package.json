@@ -1,0 +1,35 @@
+{
+  "name": "api-digital-public",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "db:create": "npx sequelize db:create || exit 0",
+    "db:migrate": "npx sequelize db:migrate",
+    "db:up": "npm run db:create && npm run db:migrate",
+    "dev": "nodemon src/server.js",
+    "startWithMigrations": "npm run db:up && npm run start",
+    "startDevWithMigrations": "npm run db:up && npm run dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "cpf-cnpj-validator": "^1.0.3",
+    "dotenv": "^15.0.0",
+    "eslint": "^8.8.0",
+    "express": "^4.17.2",
+    "express-session": "^1.17.2",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.15.0"
+  },
+  "devDependencies": {
+    "git-commit-msg-linter": "^4.0.7",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.1",
+    "sequelize-cli": "^6.4.1"
+  }
+}

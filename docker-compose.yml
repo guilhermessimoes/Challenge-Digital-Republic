@@ -1,0 +1,40 @@
+version: '3'
+services:
+  db:
+    container_name: db
+    tty: true
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: vbnw5xw8
+      MYSQL_DATABASE: brancosimoes
+    ports:
+      - "3307:3306"
+    networks: 
+      - default
+  backend:
+    container_name: backend
+    tty: true
+    entrypoint: dockerize -wait tcp://db:3306 -timeout 45s docker-entrypoint.sh
+    command: npm run startWithMigrations
+    build: ./backend
+    ports:
+      - '8081:8080'
+    volumes:
+      - ./backend:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      - SESSION_SECRET=Y2lzY291c2VyOmNpc2NwYXBpdXNlcg
+      - DB_USER=root
+      - DB_PASS=vbnw5xw8
+      - DB_DATABASE=brancosimoes
+      - DB_HOST=db
+      - DB_DIALECT=mysql
+      - PORT=8080
+    depends_on:
+      - db
+    networks: 
+      - default
+networks: 
+  default:
+    driver: bridge

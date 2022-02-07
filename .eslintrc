@@ -1,0 +1,156 @@
+{
+    "root": true,
+    "env": {
+        "node": true,
+        "jest": true,
+        "es6": true,
+        "jquery": true,
+        "commonjs": true,
+        "browser": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 2020,
+        "sourceType": "module"
+    },
+    "extends": [
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "plugin:import/recommended"
+    ],
+    "plugins": [
+        "filenames",
+        "fp",
+        "eslint-plugin-import",
+        "unused-imports",
+        "html",
+        "import"
+    ],
+    "globals": {},
+    "rules": {
+        "quotes": ["error", "single"],
+        "semi": ["error", "always"],
+        "no-var": "error",
+        "max-len": ["error", {
+            "code": 100,
+            "tabWidth": 4
+        }],
+        "operator-linebreak": ["error", "after"],
+        "lines-between-class-members": ["error", "always"],
+        "object-property-newline": "error",
+        "object-shorthand": ["error", "always", { "avoidQuotes": true }],
+        "no-magic-numbers": "warn",
+        "prefer-const": "error",
+        "no-const-assign": "error",
+        "arrow-body-style": "error",
+        "prefer-arrow-callback": "error",
+        "arrow-parens": ["error", "as-needed"],
+        "prefer-template": "error",
+        "curly": ["error", "all"],
+        "max-lines-per-function": [
+            "warn",
+            {
+                "max": 100,
+                "skipBlankLines": true,
+                "skipComments": true
+            }
+        ],
+        "filenames/match-exported": "warn",
+        "new-cap": "warn",
+        "linebreak-style": "off",
+        "object-curly-spacing": ["error", "always"],
+        "object-curly-newline": ["error", {
+            "ObjectExpression": { "multiline": true, "minProperties": 2 },
+            "ObjectPattern": { "multiline": true, "consistent": false, "minProperties": 2 },
+            "ImportDeclaration": "never",
+            "ExportDeclaration": { "multiline": true, "minProperties": 3 }
+        }],
+        "indent": ["error", 4, {
+            "MemberExpression": 0
+        }],
+        "no-console": "off",
+        "padding-line-between-statements": ["error",
+            // Always require blank lines after directive (like 'use-strict'), except between directives
+            {"blankLine": "always", "prev": "directive", "next": "*"},
+            {"blankLine": "any",    "prev": "directive", "next": "directive"},
+            // Always require blank lines after import, except between imports
+            {"blankLine": "always", "prev": "import", "next": "*"},
+            {"blankLine": "any",    "prev": "import", "next": "import"},
+            // Always require blank lines before and after every sequence of variable declarations and export
+            {"blankLine": "always", "prev": "*", "next": ["const", "let", "var", "export"]},
+            {"blankLine": "always", "prev": ["const", "let", "var", "export"], "next": "*"},
+            {"blankLine": "any",    "prev": ["const", "let", "var", "export"], "next": ["const", "let", "var", "export"]},
+            // Always require blank lines before and after class declaration, if, do/while, switch, try
+            {"blankLine": "always", "prev": "*", "next": ["if", "class", "for", "do", "while", "switch", "try"]},
+            {"blankLine": "always", "prev": ["if", "class", "for", "do", "while", "switch", "try"], "next": "*"},
+            // Always require blank lines before return statements
+            {"blankLine": "always", "prev": "*", "next": "return"},
+            { "blankLine": "always", "prev": "block-like", "next": "*" }
+        ],
+        "padded-blocks": ["error", "never"],
+        "no-unused-vars": "off",
+        "unused-imports/no-unused-imports": "error",
+        "import/no-unresolved": [
+            2, 
+            { "caseSensitive": false }
+        ],
+        "import/extensions": [
+            "off",
+            "ignorePackages",
+            {
+              "js": "never",
+              "jsx": "never",
+              "ts": "never",
+              "tsx": "never"
+            }
+         ],
+        "unused-imports/no-unused-vars": [
+            "error",
+            {
+                "vars": "all",
+                "varsIgnorePattern": "^_",
+                "args": "after-used",
+                "argsIgnorePattern": "^_"
+            }
+        ],
+        "import/named": "error",
+        "import/namespace": "error",
+        "import/default": "error",
+        "import/export": "error",
+        "import/no-commonjs": "off",
+        "getter-return": "error",
+        "no-dupe-class-members": "error",
+        "no-empty-pattern": "error",
+        "no-extra-boolean-cast": "error",
+        "no-extra-semi": "error",
+        "no-fallthrough": "error",
+        "no-invalid-regexp": "error",
+        "no-irregular-whitespace": "error",
+        "no-undef": "error",
+        "no-useless-backreference": "error",
+        "no-useless-escape": "error",
+        "no-mixed-spaces-and-tabs": ["error", "smart-tabs"]
+    },
+    "overrides": [
+        {
+            "files": [
+                "*.test.js"
+            ],
+            "rules": {
+                "max-lines-per-function": [
+                    "warn",
+                    {
+                        "max": 200,
+                        "skipBlankLines": true,
+                        "skipComments": true
+                    }
+                ],
+                "fp/no-let": [
+                    "off"
+                ],
+                "no-magic-numbers": [
+                	"off"
+                ]
+            }
+        }
+    ]
+}
