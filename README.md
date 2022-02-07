@@ -15,7 +15,7 @@ Código backend fica na pasta: `backend/`
 2. Com o Docker instalado, o projeto deve ser rodado com o seguinte comando: `docker-compose up --build`
 
 
-## 3. Implementando Code Pattern com ESLint && Prettier
+## 3. Implementando Code Pattern com ESLint
 Para integrar o ESLint ao Visual Studio Code, você precisará instalar a extensão ESLint para o Visual Studio Code. Navegue de volta para o Visual Studio Code e pesquise ESLint na guia Extensões. Clique em Instalar depois de localizar a extensão:  
 ![Instalando extensão no VSCode](https://assets.digitalocean.com/articles/linting-and-formatting-with-eslint-in-vs-code/2.png)
   
@@ -23,17 +23,52 @@ Verifique o funcionamento forçando um erro de código: exemplo, declarar uma va
 Tente salvar, o comportamento esperado é que o VSCode corrija o erro para você.  
   
 ## 4. Tecnologias aplicadas
-Express -> 
+Express -> Para fazer o roteamento.
+Sequelize -> Para criar migrations e conexão com BD.
+Mysql -> Armazenamento de informações.
+Eslint -> Padronizar o código.
+Docker -> Para facilitar o processo de executar aplicação.
+bcryptjs -> Aplicar hash na senha no BD usando bcrypt para garantir que a senha jamais seja vazada.
 
 ## 5. Rotas da API
 1. GET /logout: Realiza o logout se o usuário estiver logado
 2. POST /account/transfer: Transfere valor para a conta destino. Exemplo body:  
 ```
 {
-	"cpf": "355.487.910-01",
+	"cpf": "45562104881",
 	"transfer": "400"	
 }
 ```
+3. POST /: Realizar o login para conseguir acessar a aplicação. Exemplo body:
+```
+{
+	"cpf": "45562104881",
+	"senha": "123"
+}
+```
+4. POST /signup: Criação de usuario. Exemplo body:
+```
+{
+	"nome":"Guilherme Junio Silva Simoes",
+	"cpf": "45562104881",
+	"senha": "123",
+	"confirmacaoSenha": "123"
+}
+```
+5. POST /account/deposit: Realiza a transferência. Exemplo body:
+```
+{
+	"cpf": "45562104881",
+	"transfer": "400"	
+}
+```
+6. POST /account/withdraw: Realiza o saque. Exemplo body:
+```
+{
+	"withdraw": "5"
+}
+```
+7. GET /account: Ve o saldo da sua conta.
 
 ## 6. Importando API para o Insomnia
 1. Usar arquivo `./apiDoc/Insomnia_2022-02-07.json`
