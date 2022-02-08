@@ -24,13 +24,13 @@ services:
       - ./backend:/usr/src/app
       - /usr/src/app/node_modules
     environment:
-      - SESSION_SECRET=Y2lzY291c2VyOmNpc2NwYXBpdXNlcg
-      - DB_USER=root
-      - DB_PASS=vbnw5xw8
-      - DB_DATABASE=brancosimoes
-      - DB_HOST=db
-      - DB_DIALECT=mysql
-      - PORT=8080
+      - SESSION_SECRET=
+      - DB_USER=
+      - DB_PASS=
+      - DB_DATABASE=
+      - DB_HOST=
+      - DB_DIALECT=
+      - PORT=
     depends_on:
       - db
     networks: 
