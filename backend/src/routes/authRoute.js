@@ -6,10 +6,6 @@ router.post('/signup', authController.signupPost);
 
 router.post('/', authController.loginPost);
 
-router.get('/logout', (req, res) => {
-    req.session.destroy();
-
-    return res.status(201).json({ message: 'logout efetuado com sucesso.' });
-});
+router.get('/logout', authController.logout);
 
 module.exports = router;

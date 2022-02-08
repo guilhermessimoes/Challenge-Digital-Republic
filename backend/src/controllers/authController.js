@@ -74,6 +74,12 @@ const authController = {
 
         return res.status(200).json({ message: 'Login realizado com sucesso' });
     },
+
+    logout: async(req, res) =>{  
+        req.session.destroy();
+
+        return res.status(201).json({ message: 'logout efetuado com sucesso.' });
+    }
 };
 
 module.exports = authController;
