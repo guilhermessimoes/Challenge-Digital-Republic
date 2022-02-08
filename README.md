@@ -4,7 +4,7 @@ Neste repositório, conterá todo os softwares necessários para rodar o projeto
   
 ## 1. Guia de pastas
   
-Documentações gerais ficam na pasta: `docs/`  
+Documentações sobre as rotas e teste: `apiDoc/`  
   
 Código backend fica na pasta: `backend/`
 
