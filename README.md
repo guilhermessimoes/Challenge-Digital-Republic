@@ -11,9 +11,10 @@ Código backend fica na pasta: `backend/`
 ## 2. Colocando a rodar
   
 *Obs: todos comandos abaixos devem ser rodados nesta pasta raiz*
-1. Rodar o comando: `npm run install` (instala as dependências do eslint)
-2. Colocar as variaveis de ambiente no docker-compose. O arquivo .env, foi enviado por e-mail ao RH.
-3. Com o Docker instalado, o projeto deve ser rodado com o seguinte comando: `docker-compose up --build`
+1. Rodar o comando: `npm run install` (instala as dependências do eslint).
+2. Colocar o arquivo .env na pasta backend/.
+3. Colocar as variaveis de ambiente no docker-compose. O arquivo .env, foi enviado por e-mail ao RH.
+4. Com o Docker instalado, o projeto deve ser rodado com o seguinte comando: `docker-compose up --build`.
 
 
 ## 3. Implementando Code Pattern com ESLint
